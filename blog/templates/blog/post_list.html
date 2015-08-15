@@ -10,48 +10,47 @@
 
 
   <meta name="viewport" content="width=device-width">
-  <link rel="shortcut icon" href="{Favicon}">
-  <link rel="alternate" type="application/rss+xml" href="{RSS}">
-  <link rel="apple-touch-icon" href="{PortraitURL-128}">
-<link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+  <style type="text/css">figure {margin: 0;}</style>
+  <link rel="shortcut icon" href="http://38.media.tumblr.com/avatar_6dd3e058d14b_128.png">
+  <link rel="alternate" type="application/rss+xml" href="http://shvetsov.top/rss">
+  <link rel="apple-touch-icon" href="http://38.media.tumblr.com/avatar_6dd3e058d14b_128.png">
+  <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" media="screen" href="http://static.tumblr.com/c86fhei/5cenjxkkf/style.css" />
 
 </head>
-<body class="
-{block:IndexPage}page-index{/block:IndexPage}
-{block:TagPage}page-tag{/block:TagPage}
-{block:PermalinkPage}page-permalink page-{PostID}{/block:PermalinkPage}">
 
-  <style>
-  {CustomCSS}
+</head>
+<body class="page-index">
+
+   <style>
+  
 
     a {
-        color: {color:Accent};
+        color: #4b116f;
     }
 
     .nav li a:hover {
-        color: {color:Accent};
+        color: #4b116f;
     }
 
     .section-profile {
-        background-color: {color:Accent};
+        background-color: #4b116f;
     }
 
     .link-url {
-        background-color: {color:Accent};
+        background-color: #4b116f;
     }
 
     .spinner > div {
-        background-color: {color:Accent};
+        background-color: #4b116f;
     }
 
   </style>
 
- 
-    
-      <div style="background-image: url('{HeaderImage}');background-size: 100%;background-repeat: repeat; ">
-    
+
+
+  <div style="background-image: url('http://static.tumblr.com/1854da31033b96d5832476a6bea15fd3/c86fhei/VlGnjxfpw/tumblr_static_3xnmcjjouvcww0k404ssw8ocg_2048_v2.png');background-size: 100%;background-repeat: repeat; ">	  
 
     <div class="header-container {select:Header Color}">
       <div class="container">
@@ -96,52 +95,37 @@
       </div>
       
     </div>
-
+	
     <div class="section-post">
       <div class="container">
-        
-
-        
-            <h2 class="tagged">Posts tagged "TAG NAME"</h2>
-        
-
-        <!-- Post -->
-       
+            <h2 class="tagged">POSTS</h2>
         <div class="index-post-wrapper" >
-      
-        
-          
-          
-            <article class="post {PostType}">
-            
+		{% for post in posts %}
+            <article class="post quote">
               <div class="post-inner">
-              
-
-                <!-- post: text -->
-                
                   <div class="post-content">
                     <header class="entry-header">
                       
-                        <h1 class="entry-title"><a href="{Permalink}">Title</a></h1>
+                        <h1 class="entry-title"><a href="{Permalink}">{{post.title}}</a></h1>
                       
                     </header>
                     <div class="entry-content">
-                      
+                    <p>{{post.text|linebreaks}}</p>
                     </div>
                     <div class="index-entry-footer">
                       <img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link">
                       <a href="{Permalink}">
                         Permalink
                       </a>
+					  <p>{{ post.published_date }}</p>
                     </div>
                   </div>
                 </div>
             </article>
-        </div>
-
+			{% endfor %}
+        </div>	
       </div>
     </div>
-
   <!-- Tag list -->
   <div class="tag-list">
     <div class="container">
