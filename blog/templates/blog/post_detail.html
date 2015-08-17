@@ -1,13 +1,26 @@
-{% extends "blog/base.html" %}
-
-{% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaks }}</p>
-    </div>
-{% endblock %}
+{% extends "blog/ind.html" %}
+  {% block post %}
+            <article class="post quote">
+              <div class="post-inner">
+                  <div class="post-content">
+                    <header class="entry-header">
+                      
+                        <h1 class="entry-title"><a href="{% url "post_detail" num=post.num %}">{{post.title}}</a></h1>
+                      
+                    </header>
+                    <div class="entry-content">
+                    <p>{{post.text|linebreaks}}</p>
+                    </div>
+                    <div class="index-entry-footer">
+                      <img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link">
+                      <a href="{% url "post_detail" num=post.num %}">
+                        Permalink
+                      </a>
+                      {% if post.published_date %}
+					  <p>{{ post.published_date }}</p>
+					  {% endif %}
+                    </div>
+                  </div>
+                </div>
+            </article>
+  {% endblock post %}
