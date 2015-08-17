@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+
+<html prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+
+
+  <meta name="color:Accent" content="#A77DC2"/>
+
+
+  <meta name="viewport" content="width=device-width">
+  <style type="text/css">figure {margin: 0;}</style>
+  <link rel="shortcut icon" href="http://puu.sh/jDFub/71701c5d2f.png">
+  <link rel="alternate" type="application/rss+xml" href="http://shvetsov.top/rss">
+  <link rel="apple-touch-icon" href="http://puu.sh/jDIPW/ea4dd54266.png">
+  <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" media="screen" href="http://static.tumblr.com/c86fhei/5cenjxkkf/style.css" />
+
+</head>
+
+</head>
+<body class="page-index">
+
+   <style>
+  
+
+    a {
+        color: #4b116f;
+    }
+
+    .nav li a:hover {
+        color: #4b116f;
+    }
+
+    .section-profile {
+        background-color: #4b116f;
+    }
+
+    .link-url {
+        background-color: #4b116f;
+    }
+
+    .spinner > div {
+        background-color: #4b116f;
+    }
+
+  </style>
+
+
+
+  <div style="background-image: url('http://static.tumblr.com/1854da31033b96d5832476a6bea15fd3/c86fhei/VlGnjxfpw/tumblr_static_3xnmcjjouvcww0k404ssw8ocg_2048_v2.png');background-size: 100%;background-repeat: repeat; ">	  
+
+    <div class="header-container {select:Header Color}">
+      <div class="container">
+
+        <div class="mobile-nav-panel">
+          <i class="icon-reorder"></i>
+        </div>
+
+        <div class="header-wrapper">
+          <div class="header-box-title">
+            <header id="header" class="header">
+              <h1 class="blog-title">
+                <a href="/">Ikari</a>
+              </h1>
+            </header>
+          </div>
+          <div class="header-box-nav">
+            <nav class="nav" role="navigation">
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+               
+                  <li>
+                    <a href="{URL}">Manga</a>
+                  </li>
+                 
+                  <li class="header-tags">
+                    <a href="/">Tags</a>
+                  </li>
+                
+                <li>
+                  <a href="/archive">Archive</a>
+                </li>
+              </ul>
+            </nav>
+            
+          </div>
+          
+        </div>
+
+      </div>
+      
+    </div>
+	
+    <div class="section-post">
+      <div class="container">
+            <h2 class="tagged">POSTS</h2>
+        <div class="index-post-wrapper" >
+		{% block posts %}
+		{% endblock %}
+        </div>	
+      </div>
+    </div>
+  <!-- Tag list -->
+  <div class="tag-list">
+    <div class="container">
+      <h3>Tags</h3>
+      <ul id="tags" class="tagCloud"></ul>
+      <div class="close"><img src="//static.tumblr.com/xlsgtjb/3Y1nebe8x/close.png"></div>
+    </div>
+  </div>
+</div>
+ 
+      <section class="section-profile section">
+        <div class="container">
+          <h2 class="section-header">FRESH MANGA</h2>
+          
+          <div class="profile-wrapper">
+            <div class="profile-image">
+              <img src="{PortraitURL-128}">
+            </div>
+            <div class="profile-content">
+              <h3>MANGA NAME</h3>
+              <p>Chapter name</p>
+              <ul class="social-accounts">
+                <li class="li-website">
+                  <a href="{text:Your Website URL}" target="_blank">
+                    <img src="http://static.tumblr.com/xlsgtjb/x3Aned804/icon-home.svg" width="18px">
+                  </a>
+                </li>
+                <li class="li-twitter">
+                  <a href="http://twitter.com/{text:Your Twitter Username}" target="_blank">
+                  <img src="http://static.tumblr.com/xlsgtjb/BBuned82o/icon-twitter.svg" width="16px">
+                  </a>
+                </li>
+                <li class="li-facebook">
+                  <a href="http://www.facebook.com/{text:Your Facebook Username}" target="_blank">
+                    <img src="http://static.tumblr.com/xlsgtjb/gJuned7zf/icon-facebook.svg" width="16px">
+                  </a>
+                </li>
+                <li class="li-googleplus">
+                  <a href="http://plus.google.com/{text:Your Google Plus ID}?rel=author" target="_blank">
+                    <img src="http://static.tumblr.com/xlsgtjb/AF8ned7zs/icon-googleplus.svg" width="16px">
+                  </a>
+                </li>
+                <li class="li-pixiv">
+                  <a href="http://www.pixiv.net/member.php?id={text:Your Pixiv ID}" target="_blank">
+                    <img src="http://static.tumblr.com/xlsgtjb/gAened81u/icon-pixiv.svg" width="16px">
+                  </a>
+                </li>
+                <li class="li-instagram">
+                  <a href="http://instagram.com/{text:Your Instagram Username}" target="_blank">
+                    <img src="http://static.tumblr.com/xlsgtjb/KCkned80r/icon-instagram.svg" width="16px">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    <div class="section-post">
+      <div class="container">
+          <h2 class="section-header">Notes</h2>
+            <h2 class="tagged">Posts tagged "TAG NAME"</h2>
+        <div class="index-post-wrapper">
+            <article class="post {PostType}">
+              <div class="post-inner">
+                  <a href="{Permalink}">
+                    <img src="{PhotoURL-400}" alt="{PhotoAlt}"/>
+                  </a>
+                    <a href="{Permalink}">
+                      <img src="{PhotoURL-400}" alt="{PhotoAlt}"/>
+                    </a>
+                  <div class="post-content">
+                    <div class="entry-content">
+                        <div class="caption">
+                        </div>
+                    </div>
+                    <div class="index-entry-footer">
+                      <img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link">
+                      <a href="{Permalink}">
+                        Permalink
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-content">
+                    <div class="entry-content">
+                        <div class="caption">
+                        </div>
+                    </div>
+                    <div class="index-entry-footer">
+                      <img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link">
+                      <a href="{Permalink}">
+                      </a>
+                    </div>
+                  </div>
+
+
+              </div>
+            </article>
+        </div>
+
+      </div>
+    </div>
+
+   
+  <footer id="footer">
+    <div class="container">
+
+      
+        <div class="footer-container">
+          <div class="row">
+            <div class="span4">
+              <h4>About</h4>
+              <div class="footer-content blog-description">
+                
+              </div>
+            </div>
+              <div class="span4">
+                <h4>Profile</h4>
+                <div class="footer-content profile">
+                  <div class="profile-image">
+                    <img src="{PortraitURL-128}" class="profile-image-url">
+                  </div>
+                  <div class="profile-content">
+                    <h3>Your Name</h3>
+                    <p>Profile</p>
+                  </div>
+                </div>
+              </div>
+            <div class="span4">
+              <h4>Contact Me</h4>
+              <div class="footer-content contact">
+                <ul class="list">
+                  <li class="li-website">
+                    <a href="{text:Your Website URL}" target="_blank">
+                      Website
+                    </a>
+                  </li>
+                  <li class="li-twitter">
+                    <a href="http://twitter.com/{text:Your Twitter Username}" target="_blank">
+                      Twitter
+                    </a>
+                  </li>
+                  <li class="li-facebook">
+                    <a href="http://www.facebook.com/{text:Your Facebook Username}" target="_blank">
+                      Facebook
+                    </a>
+                  </li>
+                  <li class="li-googleplus">
+                    <a href="http://plus.google.com/{text:Your Google Plus ID}" target="_blank">
+                      Google+
+                    </a>
+                  </li>
+                  <li class="li-pixiv">
+                    <a href="http://www.pixiv.net/member.php?id={text:Your Pixiv ID}" target="_blank">
+                      Pixiv
+                    </a>
+                  </li>
+                  <li class="li-instagram">
+                    <a href="http://instagram.com/{text:Your Instagram Username}" target="_blank">
+                      Instagram
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="copyright" >
+       <font color = #002e63> ©CopyrightYears </font><br/>
+      </div>
+    </div>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+    // resize
+    $(document).ready(function () {
+      hsize = $(window).height();
+      $(".cover-image").css("height", hsize + "px");
+    });
+    $(window).resize(function () {
+      hsize = $(window).height();
+      $(".cover-image").css("height", hsize + "px");
+    });
+  </script>
+  <script src="http://static.tumblr.com/xlsgtjb/YMJnekojo/scripts.min.js"></script>
+
+</body>
+</html>
