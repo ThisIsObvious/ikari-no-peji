@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
 from .forms import Note_form
+from django.contrib.auth.decorators import login_required
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -11,6 +12,7 @@ def post_detail(request, num):
     post = get_object_or_404(Post, pk=num)
     return render(request, 'blog/post_detail.html', {'post': post})
 
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = Note_form(request.POST)
@@ -23,7 +25,8 @@ def post_new(request):
     else:
         form = Note_form()
     return render(request, 'blog/post_edit.html', {'form': form})
-    
+
+@login_required    
 def post_edit(request, num):
     post = get_object_or_404(Post, pk=num)
     if request.method == "POST":
@@ -37,7 +40,8 @@ def post_edit(request, num):
     else:
         form = Note_form(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
-    
+
+@login_required    
 def post_delete(request, num):
     post = get_object_or_404(Post, pk=num)
     post.delete()
