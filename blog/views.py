@@ -38,7 +38,7 @@ def post_edit(request, num):
         form = Note_form(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
     
-def Post_delete(request, num):
+def post_delete(request, num):
     post = get_object_or_404(Post, pk=num)
     post.delete()
     return redirect('blog.views.post_list')
