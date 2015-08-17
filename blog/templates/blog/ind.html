@@ -99,8 +99,10 @@
     <div class="section-post">
       <div class="container">
             <h2 class="tagged">POSTS</h2>
+            {% if user.is_authenticated %}
             	<a href="{% url "post_new" %}"><img src="http://static.tumblr.com/xlsgtjb/BBuned82o/icon-twitter.svg" width="16px">
             	</a>
+    	    {% endif %}
         <div class="index-post-wrapper" >
 		{% block post %}
 		{% endblock %}
