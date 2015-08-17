@@ -28,7 +28,7 @@ def post_new(request):
 def post_edit(request, num):
     post = get_object_or_404(Post, pk=num)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = Note_form(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -36,5 +36,5 @@ def post_edit(request, num):
             post.save()
             return redirect('blog.views.post_detail', num=post.pk)
     else:
-        form = PostForm(instance=post)
+        form = Note_form(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
