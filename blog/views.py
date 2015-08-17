@@ -14,7 +14,7 @@ def post_detail(request, num):
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = Note_form(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -22,7 +22,7 @@ def post_new(request):
             post.save()
             return redirect('blog.views.post_detail', num=post.pk)
     else:
-        form = PostForm()
+        form = Note_form()
     return render(request, 'blog/post_edit.html', {'form': form})
     
 def post_edit(request, num):
