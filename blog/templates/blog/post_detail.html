@@ -6,8 +6,12 @@
                     <header class="entry-header">
                       
                         <h1 class="entry-title"><a>{{post.title}}</a></h1>
+                        {% if user.is_authenticated %}
                         <a href="{% url 'post_edit' num=post.pk %}">Edit</a>
                     	<a href="{% url 'post_delete' num=post.pk %}">Delete</a>
+                    	{% else %}
+                    	<a href="{% url 'django.contrib.auth.views.login' %}">Login</a>
+                    	{% endif %}
                     </header>
                     <div class="entry-content">
                     <p>{{post.text|linebreaks}}</p>
