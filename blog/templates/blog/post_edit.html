@@ -1,0 +1,9 @@
+{% extends "blog/ind.html" %}
+
+{% block post %}
+    <h1>New note</h1>
+    <form method="POST" >{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}
