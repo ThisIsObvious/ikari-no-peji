@@ -5,10 +5,8 @@
                   <div class="post-content">
                     <header class="entry-header">
                       
-                        <h1 class="entry-title"><a>{{post.title}}</a>
-                        <img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link">
-                        </h1>
-                        <a href="{% url "post_edit" num=post.pk %}"></a>
+                        <h1 class="entry-title"><a>{{post.title}}</a></h1>
+                        <a href="{% url "post_edit" num=post.pk %}"><img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link"></a>
                     </header>
                     <div class="entry-content">
                     <p>{{post.text|linebreaks}}</p>
