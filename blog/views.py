@@ -13,5 +13,14 @@ def post_detail(request, num):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
-    form = Note_form()
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('blog.views.post_detail', num=post.pk)
+    else:
+        form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
