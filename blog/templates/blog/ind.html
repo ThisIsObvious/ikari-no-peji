@@ -307,10 +307,12 @@
     });
     // hide
     $(document).ready(function(){
-    	$(".coverdiv").focus(function(){
-    		$(this).fadeOut(slow,function(){});
-    	});
+    $(".coverdiv").hover(function(){
+       $(this).css("opacity", 0.1);
+    	}, function(){
+       $(this).css("opacity", 1);
     });
+});
   </script>
   <script src="http://static.tumblr.com/xlsgtjb/YMJnekojo/scripts.min.js"></script>
 
