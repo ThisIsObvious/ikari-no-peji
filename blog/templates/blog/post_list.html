@@ -2,6 +2,7 @@
   {% block post %}
 	{% for post in posts %}
             <article class="post quote">
+            <div class ="coverdiv">
               <div class="post-inner">
                   <div class="post-content">
                     <header class="entry-header">
@@ -21,6 +22,7 @@
                     </div>
                   </div>
                 </div>
+            </div>
             </article>
 	{% endfor %}
   {% endblock post %}
