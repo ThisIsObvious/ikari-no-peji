@@ -302,6 +302,12 @@
       hsize = $(window).height();
       $(".cover-image").css("height", hsize + "px");
     });
+    // hide
+    $(document).ready(function(){
+    	$(".coverdiv").focus(function(){
+    		$(this).fadeOut(slow,function(){});
+    	});
+    });
   </script>
   <script src="http://static.tumblr.com/xlsgtjb/YMJnekojo/scripts.min.js"></script>
 
