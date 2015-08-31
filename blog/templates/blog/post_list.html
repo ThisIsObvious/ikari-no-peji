@@ -2,8 +2,9 @@
   {% block post %}
 	{% for post in posts %}
             <article class="post quote">
-              <div class="post-inner">
-                  <div class="post-content">
+              <div class="post-inner view view-fifth"">
+               <img src="http://doc.jsfiddle.net/_downloads/jsfiddle-logo.png" />  
+                  <div class="post-content mask">
                     <header class="entry-header">
                       
                         <h1 class="entry-title"><a href="{% url "post_detail" num=post.pk %}">{{post.title}}</a></h1>
