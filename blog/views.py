@@ -12,6 +12,15 @@ def post_detail(request, num):
     post = get_object_or_404(Post, pk=num)
     return render(request, 'blog/post_detail.html', {'post': post})
 
+def manga_general(request, num):
+    manga = get_object_or_404(Manga, pk=num)
+    return render(request, 'blog/manga_general.html', {'manga': manga})
+    
+def manga_page(request, manga, num):
+    manga = get_object_or_404(Manga, pk=num)
+    page = get_object_or_404(Page, pk=num)
+    return render(request, 'blog/manga_page.html', {'manga': manga}, {'page': page})
+
 @login_required
 def post_new(request):
     if request.method == "POST":
