@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
-    
+
 def post_detail(request, num):
     post = get_object_or_404(Post, pk=num)
     return render(request, 'blog/post_detail.html', {'post': post})
@@ -15,10 +15,10 @@ def post_detail(request, num):
 def manga_general(request, num):
     manga = get_object_or_404(Manga, pk=num)
     return render(request, 'blog/manga_general.html', {'manga': manga})
-    
+
 def manga_page(request, manga, numb):
     manga = get_object_or_404(Manga, pk=manga)
-    page = get_object_or_404(Page, pk=numb)
+    page = get_object_or_404(Page, number=numb,manga_id=manga)
     return render(request, 'blog/manga_page.html', {'manga': manga}, {'page': page})
 
 @login_required
@@ -35,7 +35,7 @@ def post_new(request):
         form = Note_form()
     return render(request, 'blog/post_edit.html', {'form': form})
 
-@login_required    
+@login_required
 def post_edit(request, num):
     post = get_object_or_404(Post, pk=num)
     if request.method == "POST":
@@ -50,7 +50,7 @@ def post_edit(request, num):
         form = Note_form(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-@login_required    
+@login_required
 def post_delete(request, num):
     post = get_object_or_404(Post, pk=num)
     post.delete()
