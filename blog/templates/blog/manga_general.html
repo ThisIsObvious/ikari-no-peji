@@ -11,9 +11,6 @@
                     </div>
                     <div class="index-entry-footer">
                       <img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link">
-                      <a href="{% url "post_detail" num=post.pk %}">
-                        Permalink
-                      </a>
                       {% if post.published_date %}
 					  <p>{{ post.published_date }}</p>
 					  {% endif %}
