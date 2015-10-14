@@ -1,1 +1,23 @@
-{{manga.name}} {{page.number}}
+{% extends "blog/ind.html" %}
+  {% block post %}
+            <article class="post quote">
+              <div class="post-inner">
+                  <div class="post-content">
+                    <header class="entry-header">
+                        <h1 class="entry-title"><a>{{page.manga.title}}</a></h1>
+                    </header>
+                    <div class="entry-content">
+                    <img src="{{ page.url }}">>
+                    <p>{{page.manga.author}}</p>
+                     <p>{{page.number}}</p>
+                    </div>
+                    <div class="index-entry-footer">
+                      <img src="http://static.tumblr.com/xlsgtjb/p7Yned8qd/icon-link.svg" class="icon-link">
+                      {% if post.published_date %}
+					  <p>{{ post.published_date }}</p>
+					  {% endif %}
+                    </div>
+                  </div>
+                </div>
+            </article>
+  {% endblock post %}
