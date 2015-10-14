@@ -34,7 +34,7 @@ class Page(models.Model):
         default = 0
     )
     page = models.ImageField(
-        upload_to='ikari-no-peji/pages/', 
+        upload_to='ikari-no-peji/', 
         height_field='height', 
         width_field='width'
     )
