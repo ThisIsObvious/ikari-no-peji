@@ -24,8 +24,15 @@ class Manga(models.Model):
     text = models.TextField()
     refreshed_date = models.DateTimeField(
             blank=True, null=True)
+    def __str__(self):
+        return self.title
         
 class Page(models.Model):
+    number = models.PositiveIntegerField(
+        blank = True, null = True,
+        editable = True,
+        default = 0
+    )
     page = models.ImageField(
         upload_to='pages/', 
         height_field='height', 
@@ -43,3 +50,5 @@ class Page(models.Model):
         editable = False,
         default = 0
     )
+    def __str__(self):
+        return self.number
