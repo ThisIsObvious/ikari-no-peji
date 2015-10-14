@@ -96,10 +96,10 @@
     				<a href="{% url 'post_new' %}" class="top-menu">NEW NOTE</a>
     		</li>
     		<li>
-    				<p>Hello {{ user.username }}
+    				<p>Hello {{ user.username }}</p>
     		</li>
     		<li>
-    				<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a></p>
+    				<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>
     		</li>
     			{% else %}
     				<a href="{% url 'django.contrib.auth.views.login' %}">LOGIN</a>
