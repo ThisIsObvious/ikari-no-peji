@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^post/(?P<num>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^post/(?P<num>[0-9]+)/delete/$', views.post_delete, name='post_delete'),
     url(r'^manga/(?P<num>[0-9]+)/$',views.manga_general, name='manga_general'),
-    url(r'^manga/(?P<num>[0-9]+)/page/(?P<num>[0-9]+)/$', views.manga_page, name='manga_page'),
+    url(r'^manga/(?P<num>[0-9]+)/page/(?P<numb>[0-9]+)/$', views.manga_page, name='manga_page'),
 ]
