@@ -19,7 +19,7 @@ def manga_general(request, num):
 def manga_page(request, manga, numb):
     manga = get_object_or_404(Manga, pk=manga)
     page = get_object_or_404(Page, number=numb,manga_id=manga)
-    return render(request, 'blog/manga_page.html', {'manga': manga}, {'page': page})
+    return render(request, 'blog/manga_page.html', {'manga': manga,'page': page})
 
 @login_required
 def post_new(request):
