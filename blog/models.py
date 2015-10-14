@@ -17,3 +17,29 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+        
+class Manga(models.Model):
+    author = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    refreshed_date = models.DateTimeField(
+            blank=True, null=True)
+        
+class Page(models.Model):
+    page = models.ImageField(
+        upload_to='pages/', 
+        height_field='height', 
+        width_field='width'
+    )
+    caption = models.TextField(blank=True)
+    manga = models.ForeignKey('Manga')
+    width = models.PositiveIntegerField(
+        blank = True, null = True,
+        editable = False,
+        default = 0
+    )
+    height = models.PositiveIntegerField(
+        blank = True, null = True,
+        editable = False,
+        default = 0
+    )
