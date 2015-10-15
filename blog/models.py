@@ -33,6 +33,7 @@ class Page(models.Model):
         editable = True,
         default = 1
     )
+    URL = models.URLField()
     page = models.ImageField(
         upload_to='.', 
         height_field='height', 
