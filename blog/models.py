@@ -31,7 +31,7 @@ class Page(models.Model):
     number = models.PositiveIntegerField(
         blank = True, null = True,
         editable = True,
-        default = 0
+        default = 1
     )
     page = models.ImageField(
         upload_to='ikari-no-peji/', 
@@ -51,4 +51,4 @@ class Page(models.Model):
         default = 0
     )
     def __str__(self):
-        return self.number
+        return str(self.number)
