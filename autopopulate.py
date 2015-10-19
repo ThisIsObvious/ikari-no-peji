@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 
 
 def add_page(num):
-    p = Page.objects.get_or_create(number=num)
+    p = Page.objects.get_or_create(number=num)[num]
         p.url = 'http://img.mangastream.com/cdn/manga/53/2962/' + str(0) + str(num) +'.png'
         r = requests.get(p.url, stream=True)
         with open(str(0)+str(num)+'.png', 'wb') as f:
