@@ -5,6 +5,9 @@ from blog.models import Manga, Page
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ikari.settings')
 
+import django
+django.setup()
+
 def add_page(num):
     p = Page.objects.get_or_create(number=num)
     p.url = 'http://img.mangastream.com/cdn/manga/53/2962/' + str(0) + str(num) +'.png'
