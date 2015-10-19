@@ -1,7 +1,7 @@
 import os
 import shutil
 import requests
-from .models import Manga, Page
+from blog.models import Manga, Page
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ikari.settings')
 
