@@ -1,7 +1,7 @@
 import os
 import shutil
 import requests
-from .models import Manga, Page
+from blog.models import Manga, Page
 from django.contrib.auth.models import User
 from django.core.files import File
 from urllib.parse import urlparse
