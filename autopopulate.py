@@ -2,9 +2,6 @@ import os
 import shutil
 import requests
 from blog.models import Manga, Page
-from django.contrib.auth.models import User
-from django.core.files import File
-from urllib.parse import urlparse
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ikari.settings')
 
@@ -17,7 +14,7 @@ def add_page(num):
         shutil.copyfileobj(r.raw, f)
         p.page.save(str(0)+str(num)+'.png', f, save=True)
     del response
-    p.caption= str(num*2) + str(User.objects.all())
+    p.caption= str(num*2)
     return p
 
 if __name__ == "__main__":
