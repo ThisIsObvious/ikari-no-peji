@@ -17,7 +17,8 @@ def add_page(num):
         shutil.copyfileobj(r.raw, f)
         p.page.save(str(0)+str(num)+'.png', f, save=True)
     del response
-    p.caption= str(num*2)
+    p.caption = str(num*2)
+    p.manga = "Bleach"
     return p
 
 if __name__ == "__main__":
