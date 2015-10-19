@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.files import File
 from urllib.parse import urlparse
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ikari.settings')
 
 def add_page(num):
     p = Page.objects.get_or_create(number=num)
