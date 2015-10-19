@@ -10,14 +10,14 @@ django.setup()
 
 def add_page(num):
     p = Page.objects.get_or_create(number=num, manga_id=1)
-    p.url = 'http://img.mangastream.com/cdn/manga/53/2962/' + str(0) + str(num) +'.png'
-    r = requests.get(p.url, stream=True)
+    p.URL = 'http://img.mangastream.com/cdn/manga/53/2962/' + str(0) + str(num) +'.png'
+    r = requests.get(p.URL, stream=True)
     with open(str(0)+str(num)+'.png', 'wb') as f:
         r.raw.decode_content = True
         shutil.copyfileobj(r.raw, f)
-        p.page.save(str(0)+str(num)+'.png', f, save=True)
+        p.Page.save(str(0)+str(num)+'.png', f, save=True)
     del response
-    p.caption = str(num*2)
+    p.Caption = str(num*2)
     return p
 
 if __name__ == "__main__":
