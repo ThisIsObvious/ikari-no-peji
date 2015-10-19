@@ -20,6 +20,6 @@ def add_page(num):
     return p
 
 if __name__ == "__main__":
-    print "Script..."
+    print ("Script...")
     for i in range(10):
         add_page(i)
