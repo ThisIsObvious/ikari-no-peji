@@ -82,7 +82,7 @@ def download_image(url):
 def valid_img(img):
     type = img.format
     if type in ('GIF', 'JPEG', 'JPG', 'PNG'):
-         try:
+        try:
             img.verify()
             return True
         except:
