@@ -37,7 +37,9 @@ class Page(models.Model):
         default = 'http://img.mangastream.com/'
     )
     page = models.ImageField(
-        upload_to='.', 
+        upload_to='.',
+        null=True, 
+        blank=True,
         height_field='height', 
         width_field='width'
     )
