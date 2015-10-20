@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.files.base import ContentFile
 from io import BytesIO
 from urllib import parse
 from urllib import request
