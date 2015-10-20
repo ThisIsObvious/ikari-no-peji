@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from io import StringIO
+from io import BytesIO
 from urllib import parse
 from urllib import request
 from PIL import Image
@@ -57,7 +57,7 @@ class Page(models.Model):
                 filename = parse(url).path.split('/')[-1]
                 self.page = filename
                 tempfile = image
-                tempfile_io = StringIO()
+                tempfile_io = BytesIO()
                 tempfile.save(tempfile_io, format=image.format)
                 self.page.save(filename, ContentFile(tempfile_io.getvalue()), save=False) 
             except Exception as e:
@@ -71,7 +71,7 @@ def download_image(url):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'}
     r = request.Request(url, headers=headers)
     req = request.urlopen(r, timeout=10)
-    image_data = StringIO(req.read())
+    image_data = BytesIO(req.read())
     img = Image.open(image_data)
     img_copy = copy.copy(img)
     if valid_img(img_copy):
