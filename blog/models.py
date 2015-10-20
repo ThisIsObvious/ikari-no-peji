@@ -60,7 +60,7 @@ class Page(models.Model):
                 tempfile_io = StringIO()
                 tempfile.save(tempfile_io, format=image.format)
                 self.prod_img.save(filename, ContentFile(tempfile_io.getvalue()), save=False) 
-            except Exception, e:
+            except Exception as e:
                 print ("Error trying to save model: saving image failed: " + str(e))
                 pass
         super(Product, self).save(*args, **kwargs)
