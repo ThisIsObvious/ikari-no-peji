@@ -74,10 +74,10 @@ def download_image(url):
     image_data = BytesIO(req.read())
     img = Image.open(image_data)
     img_copy = copy.copy(img)
-    if valid_img(img_copy):
-        return img
-    else:
-        raise Exception('An invalid image was detected when attempting to save a Page!')
+    ##if valid_img(img_copy):
+    return img
+    ##else:
+     ##   raise Exception('An invalid image was detected when attempting to save a Page!')
 
 def valid_img(img):
     type = img.format
