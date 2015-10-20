@@ -3,7 +3,7 @@ from django.utils import timezone
 from io import StringIO
 from urllib import parse
 from urllib import request
-
+from PIL import Image
 import imghdr
 import copy
 
