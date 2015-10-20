@@ -68,7 +68,7 @@ class Page(models.Model):
         return str(self.number)
 
 def download_image(url):
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0'}
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'}
     r = request.Request(url, headers=headers)
     req = request.urlopen(r, timeout=10)
     image_data = StringIO(req.read())
