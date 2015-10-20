@@ -51,19 +51,19 @@ class Page(models.Model):
     manga = models.ForeignKey('Manga')
 
     def save(self, url='', *args, **kwargs):
-        if self.prod_img != '' and url != '':
+        if self.page != '' and url != '':
             image = download_image(url)
             try:
-                filename = urlparse.urlparse(url).path.split('/')[-1]
-                self.prod_img = filename
+                filename = parse(url).path.split('/')[-1]
+                self.page = filename
                 tempfile = image
                 tempfile_io = StringIO()
                 tempfile.save(tempfile_io, format=image.format)
-                self.prod_img.save(filename, ContentFile(tempfile_io.getvalue()), save=False) 
+                self.page.save(filename, ContentFile(tempfile_io.getvalue()), save=False) 
             except Exception as e:
                 print ("Error trying to save model: saving image failed: " + str(e))
                 pass
-        super(Product, self).save(*args, **kwargs)
+        super(Page, self).save(*args, **kwargs)
     def __str__(self):
         return str(self.number)
 
@@ -77,7 +77,7 @@ def download_image(url):
     if valid_img(img_copy):
         return img
     else:
-        raise Exception('An invalid image was detected when attempting to save a Product!')
+        raise Exception('An invalid image was detected when attempting to save a Page!')
 
 def valid_img(img):
     type = img.format
