@@ -54,7 +54,7 @@ class Page(models.Model):
         if self.page != '' and url != '':
             image = download_image(url)
             try:
-                filename = parse(url).path.split('/')[-1]
+                filename = parse.urlparse(url).path.split('/')[-1]
                 self.page = filename
                 tempfile = image
                 tempfile_io = BytesIO()
