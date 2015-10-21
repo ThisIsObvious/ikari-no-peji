@@ -56,7 +56,7 @@ class Page(models.Model):
             image = download_image(url)
             try:
                 self.URL=str(url)
-                filename = str(manga.name.title) + parse.urlparse(url).path.split('/')[-1]
+                filename = str(self.manga.title) + parse.urlparse(url).path.split('/')[-1]
                 self.page = filename
                 tempfile = image
                 tempfile_io = BytesIO()
