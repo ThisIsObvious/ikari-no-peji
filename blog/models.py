@@ -8,6 +8,9 @@ from PIL import Image
 import imghdr
 import copy
 
+def get_upload_path(instance, filename):
+    file_path = '{instance.manga.title}/{instance.chapter}'
+    return file_path
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
@@ -40,11 +43,16 @@ class Page(models.Model):
         editable = True,
         default = 1
     )
+    chapter = models.PositiveIntegerField(
+        blank = True, null = True,
+        editable = True,
+        default = 1
+    )
     URL = models.URLField(
         default = 'http://img.mangastream.com/'
     )
     page = models.ImageField(
-        upload_to='.',
+        upload_to='get_upload_path',
         null=True, 
         blank=True,
     )
