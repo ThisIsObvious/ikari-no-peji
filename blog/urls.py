@@ -10,4 +10,8 @@ urlpatterns = [
     url(r'^manga/(?P<num>[0-9]+)/$',views.manga_general, name='manga_general'),
     url(r'^(?P<manga>[0-9]+)/(?P<numb>[0-9]+)/$', views.manga_page, name='manga_page'),
 ] 
+if settings.DEBUG:
+    urlpatterns += patterns('django.views.static',
+        (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
+)
 
