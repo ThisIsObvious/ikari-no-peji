@@ -57,10 +57,11 @@ class Page(models.Model):
             try:
                 filename = parse.urlparse(url).path.split('/')[-1]
                 self.page = filename
+                self.url=url
                 tempfile = image
                 tempfile_io = BytesIO()
                 tempfile.save(tempfile_io, format=image.format)
-                self.page.save(filename, ContentFile(tempfile_io.getvalue()), save=False) 
+                self.page.save(filename, ContentFile(tempfile_io.getvalue()), save=False)
             except Exception as e:
                 print ("Error trying to save model: saving image failed: " + str(e))
                 pass
