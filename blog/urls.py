@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.comf.urls imoport patterns
 from django.conf import settings
 from . import views
 
