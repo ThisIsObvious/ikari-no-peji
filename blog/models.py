@@ -9,7 +9,7 @@ import imghdr
 import copy
 
 def get_upload_path(instance, filename):
-    file_path = '{instance.manga.title}/{instance.chapter}'
+    file_path = instance.manga.title + '/' + instance.chapter
     return file_path
 
 class Post(models.Model):
