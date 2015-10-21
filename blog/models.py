@@ -79,7 +79,7 @@ class Page(models.Model):
                 pass
         super(Page, self).save(*args, **kwargs)
     def __str__(self):
-        return str(self.number)
+        return str(str(self.manga.title) + str('{:04}'.format(self.chapter)) + str('{:02}'.format(self.number)))
 
 def download_image(url):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'}
