@@ -8,6 +8,10 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def shop(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/shop.html', {'posts': posts})
+
 def post_detail(request, num):
     post = get_object_or_404(Post, pk=num)
     return render(request, 'blog/post_detail.html', {'post': post})
