@@ -323,12 +323,12 @@ if args['reload']:
             with open(subdir + '/mangadl.link', 'r') as f:
                 url_list.append(f.read())
         elif glob.glob(subdir + '/* Chapter *'):
-            url_input = raw_input("Enter URL for folder " + subdir + " (Press ENTER to skip) : ")
+            url_input = input("Enter URL for folder " + subdir + " (Press ENTER to skip) : ")
             url_list.append(url_input)
 elif args['update']:
     url_list = args['update']
 else:
-    url_input = raw_input("Enter URL: ")
+    url_input = input("Enter URL: ")
     url_list.append(url_input)
 
 url_list = filter(None, url_list)
