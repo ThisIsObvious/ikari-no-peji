@@ -43,15 +43,15 @@ def zipdir(path, zipf):
 
 ## Function to ask for URL
 def checkURLType(url_input):
-    print "Checking: " + url_input
+    print ("Checking: " + url_input)
     url_ok = False
     for url_type in URL_TYPES:
         if re.compile(URL_TYPES[url_type]['url']).match(url_input):
-            print "Site supported: " + url_type
+            print ("Site supported: " + url_type)
             url_ok = True
             break
     if not url_ok:
-        print "URL not supported or unknown"
+        print ("URL not supported or unknown")
         exit(1)
     return url_type
 
@@ -60,7 +60,7 @@ def readURL(url):
     if url[0] == '/':
         url = url_type + url
     if __DEBUG__:
-        print "Reading url: " + url
+        print ("Reading url: " + url)
     request = urllib.request.Request(url)
     request.add_header('Accept-encoding', 'gzip')
     for i in range(1, __RETRY_URL__):
@@ -118,7 +118,7 @@ class MangaChapter(object):
         self.prefix = " ".join(prefix)
 
     def show(self):
-        print "Vol: ", self.volume_number, " Ch: ", self.chapter_number, " - ", self.chapter_title, ", by: ", self.group_name
+        print ("Vol: ", self.volume_number, " Ch: ", self.chapter_number, " - ", self.chapter_title, ", by: ", self.group_name)
 
     def addPage(self, page_url):
         self.page_list.append(page_url)
@@ -134,8 +134,8 @@ class MangaChapter(object):
         pathB = cleanPath(self.prefix)
         dir_path = os.path.join(pathA, pathB)
         if verbose:
-            print ""
-            print dir_path
+            print ("")
+            print (dir_path)
         zip_path = dir_path + ".zip"
         if os.path.exists(zip_path):
             zipf = zipfile.ZipFile(zip_path)
@@ -169,7 +169,7 @@ class MangaChapterBatoto(MangaChapter):
         webpage = readHTML(self.chapter_url)
         if webpage.xpath("//a[@href='?supress_webtoon=t']"): ## Long strip format for webtoons
             if __DEBUG__:
-                print "Webtoon: reading in long strip format"
+                print ("Webtoon: reading in long strip format")
             s = webpage.xpath("//div[@id='read_settings']/following-sibling::div/img")
             for l in s:
                 self.addPage(l.get('src'))
@@ -223,7 +223,7 @@ class Manga(object):
     def addMangaChapter(self, manga_chapter):
         self.chapter_list.insert(0, manga_chapter)
         if __DEBUG__:
-            print "Added chapter " + manga_chapter.chapter_number
+            print ("Added chapter " + manga_chapter.chapter_number)
 
     def retrieveAllChapters(self):
         raise NotImplementedError # To be overridden in subclasses
@@ -242,7 +242,7 @@ class MangaBatoto(Manga):
         ## print tostring(page) # For testing only
         if self.name is None:
             self.name = webpage.xpath('//h1[@class="ipsType_pagetitle"]')[0].text.strip()
-            print "Set name to: " + self.name
+            print ("Set name to: " + self.name)
         assert(self.name is not None)
         ch_path = "Batoto - " + self.name
         self.createFolder(ch_path)
@@ -347,11 +347,11 @@ for url in url_list:
         sys.stdout.flush()
         if __DOWNLOAD__:
             if __DEBUG__:
-                print "\nDownloading chapter..."
+                print ("\nDownloading chapter...")
             chapter.downloadChapter()
             curr_download_count = curr_download_count + 1
     sys.stdout.write("\rDownloaded " + str(curr_download_count) + "/" + str(chapter_count) + " chapters.")
     sys.stdout.flush()
-    print "\n"
-print "Finished."
+    print ("\n")
+print ("Finished.")
 exit(0)
