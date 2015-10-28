@@ -141,7 +141,7 @@ class MangaChapter(object):
             zipf = zipfile.ZipFile(zip_path)
             if zipf.testzip() is None:
                 if __DEBUG__:
-                    print "Skipping chapter " + self.chapter_number
+                    print ("Skipping chapter " + self.chapter_number)
                 return
             else:
                 os.remove(zip_path)
@@ -252,7 +252,7 @@ class MangaBatoto(Manga):
                 ch_url = ch_a.get('href')
                 ch_name = unicode(ch_a.text_content().strip(' \t\n\r')).translate(dict.fromkeys(map(ord, '\\/'), None))
                 if __DEBUG__:
-                    print ch_name
+                    print (ch_name)
                 vol_no = None
                 ch_no = None
                 ch_title = None
@@ -283,7 +283,7 @@ class MangaStarkana(Manga):
                 self.name = webpage.xpath('//meta[@property="og:title"]/@content')[0].strip()
             else:
                 self.name = self.url.split('/')[-1].replace('_', ' ')
-            print "Set name to: " + self.name
+            print ("Set name to: " + self.name)
         assert(self.name is not None)
         ch_path = "Starkana - " + self.name
         self.createFolder(ch_path)
