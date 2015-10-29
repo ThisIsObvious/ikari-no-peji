@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.conf.urls import patterns
 from django.conf import settings
 from . import views
+from httpproxy.views import HttpProxy
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
@@ -16,5 +17,9 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',
         (r'pages/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
+)
+    urlpatterns += patterns('',
+    (r'^proxy/(?P<url>.*)$',
+        HttpProxy.as_view(base_url='http://www.python.org/')),
 )
 
